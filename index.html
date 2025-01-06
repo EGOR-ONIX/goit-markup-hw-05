@@ -18,6 +18,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css"
     />
+    <!-- Animation on scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
@@ -27,7 +29,7 @@
       <div class="header-container container">
         <nav class="header-nav">
           <!-- Logo -->
-          <a href="./index.html" class="header-link logo link">
+          <a href="./index.html" class="logo link">
             Web<span class="logo-dark">Studio</span>
           </a>
 
@@ -94,7 +96,11 @@
           <h2 class="visually-hidden">Features</h2>
 
           <ul class="features-list list card-set">
-            <li class="feature-item card-set-item">
+            <li
+              class="feature-item card-set-item"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
               <div class="feature-icon-bg">
                 <svg class="feature-icon" width="64" height="64">
                   <use href="./images/icons.svg#antenna"></use>
@@ -106,7 +112,7 @@
                 the perfect and creative solution.
               </p>
             </li>
-            <li class="feature-item card-set-item">
+            <li class="feature-item card-set-item" data-aos="fade-right">
               <div class="feature-icon-bg">
                 <svg class="feature-icon" width="64" height="64">
                   <use href="./images/icons.svg#clock"></use>
@@ -118,7 +124,7 @@
                 within the shortest possible time.
               </p>
             </li>
-            <li class="feature-item card-set-item">
+            <li class="feature-item card-set-item" data-aos="fade-left">
               <div class="feature-icon-bg">
                 <svg class="feature-icon" width="64" height="64">
                   <use href="./images/icons.svg#diagram"></use>
@@ -130,7 +136,11 @@
                 growth opportunities and minimize risk.
               </p>
             </li>
-            <li class="feature-item card-set-item">
+            <li
+              class="feature-item card-set-item"
+              data-aos="fade-left"
+              data-aos-delay="200"
+            >
               <div class="feature-icon-bg">
                 <svg class="feature-icon" width="64" height="64">
                   <use href="./images/icons.svg#astronaut"></use>
@@ -152,7 +162,7 @@
           <h2 class="section-title">What are we doing</h2>
 
           <ul class="products-list list card-set">
-            <li class="card-set-item">
+            <li class="card-set-item" data-aos="zoom-in-up">
               <img
                 src="./images/products/img-1.jpg"
                 alt="Modern web dashboard design on a desktop monitor"
@@ -160,7 +170,11 @@
                 height="300"
               />
             </li>
-            <li class="card-set-item">
+            <li
+              class="card-set-item"
+              data-aos="zoom-in-up"
+              data-aos-delay="200"
+            >
               <img
                 src="./images/products/img-2.jpg"
                 alt="Chat application interface design on smartphones"
@@ -168,7 +182,11 @@
                 height="300"
               />
             </li>
-            <li class="card-set-item">
+            <li
+              class="card-set-item"
+              data-aos="zoom-in-up"
+              data-aos-delay="400"
+            >
               <img
                 src="./images/products/img-3.jpg"
                 alt="Mobile app UI/UX design showcased on a smartphone"
@@ -621,7 +639,7 @@
       </div>
     </footer>
 
-    <!-- ! Modal window -->
+    <!-- Modal window -->
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
         <button
@@ -637,6 +655,8 @@
       </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/aos.js"></script>
     <script src="./js/modal.js"></script>
   </body>
 </html>
