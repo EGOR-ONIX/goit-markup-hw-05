@@ -279,7 +279,7 @@ button {
   content: "";
 
   position: absolute;
-  top: calc(100% - 4px + 1px);
+  bottom: -1px;
 
   display: block;
   width: 100%;
@@ -407,6 +407,14 @@ button {
 
 .feature-icon {
   fill: currentColor;
+
+  transform: scale(1);
+
+  transition: transform var(--anim-active);
+}
+
+.feature-icon-bg:hover .feature-icon {
+  transform: scale(1.3);
 }
 
 .feature-subtitle {
@@ -648,23 +656,25 @@ button {
   |============================
 */
 
-/* ! ========================== */
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   z-index: var(--modal-index);
 
+  width: 100%;
+  height: 100%;
+
   background-color: rgba(46, 47, 66, 0.4);
+  backdrop-filter: blur(2px);
 
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
 
-  transition: opacity 200ms ease, visibility 200ms ease,
-    backdrop-filter 200ms ease;
+  --anim-backdrop: 200ms ease;
+  transition: opacity var(--anim-backdrop), visibility var(--anim-backdrop),
+    backdrop-filter var(--anim-backdrop);
 }
 
 .backdrop.is-hidden {
@@ -672,7 +682,7 @@ button {
   visibility: hidden;
   pointer-events: none;
 
-  transition-delay: 400ms;
+  transition-delay: 600ms;
 }
 
 .modal {
@@ -687,19 +697,18 @@ button {
 
   background-color: var(--modal-bg-cl);
   border-radius: 4px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14);
   opacity: 1;
 
-  transition: transform 400ms ease-in 200ms, opacity 400ms ease-in 200ms;
+  --anim-modal: 400ms ease-in 200ms;
+  transition: transform var(--anim-modal), opacity var(--anim-modal);
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) rotate(360deg) scale(0.2);
   opacity: 0;
+  transform: translate(-50%, -50%) rotate(360deg) scale(0.2);
 }
-
-/* ! ========================================= */
 
 .modal-btn {
   display: flex;
@@ -715,13 +724,16 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 
-  transition: background-color var(--anim-active), color var(--anim-active);
+  transition: color var(--anim-active), background-color var(--anim-active),
+    border-color var(--anim-active);
 }
 
 .modal-btn:hover,
 .modal-btn:focus {
-  background-color: var(--accent-cl);
   color: #ffffff;
+
+  background-color: var(--accent-cl);
+  border-color: transparent;
 }
 
 .modal-icon {
